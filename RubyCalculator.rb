@@ -40,7 +40,7 @@ puts "Please select your Math operator: Add, Subtrack, or Divide? "
 
 # Converts the String operator to a Variable
 user_imput = gets.chomp.to_s
-string_sign = crunch_numbers(0,0,user_imput) # I need another way to grab a default operator
+string_sign = crunch_numbers(0,0,user_input) # I need another way to grab a default operator
 
 # User selects his or her first number
 print "What is the first number? "
@@ -51,7 +51,7 @@ print "What is the second number you want to #{string_sign[2]} #{first_number}? 
 second_number = gets.chomp.to_f
 
 # Calculates the answer
-answer = crunch_numbers(first_number, second_number, user_imput)
+answer = crunch_numbers(first_number, second_number, user_input)
 
 # Prints out the answer
 puts "#{first_number} #{answer[1]} #{second_number} = #{answer[0]} \n\n"
