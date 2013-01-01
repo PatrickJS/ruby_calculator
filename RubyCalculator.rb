@@ -39,7 +39,7 @@ puts "Welcome to my Basic Calculator\n"
 puts "Please select your Math operator: Add, Subtrack, or Divide? "
 
 # Converts the String operator to a Variable
-user_imput = gets.chomp.to_s
+user_input = gets.chomp.to_s
 string_sign = crunch_numbers(0,0,user_input) # I need another way to grab a default operator
 
 # User selects his or her first number
