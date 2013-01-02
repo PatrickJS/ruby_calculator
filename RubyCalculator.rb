@@ -26,6 +26,7 @@ class Calculator
       when @operator == 'exponent'
         self.exponent(@first_number, @second_number)
       when @operator == 'root'
+        @first_number = nil
         self.root(@second_number)
       end
   end
