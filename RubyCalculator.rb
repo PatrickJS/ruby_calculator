@@ -1,6 +1,6 @@
-#         -*- coding: utf-8 -*-
+#       -*- coding: utf-8 -*-
 #
-#   Basic Ruby Calculator v0.8.0
+#      Ruby Calculator v0.8.0
 #          by gdi2290
 #
 #   MRI Ruby Version: 1.9.3 p362
