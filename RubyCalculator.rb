@@ -90,7 +90,7 @@ class Screen
       when operator == 'divide'
         ' % '
       when operator == 'muliply'
-        '*'
+        ' x '
       when operator == 'exponent'
           '^'
       when operator == 'root'
