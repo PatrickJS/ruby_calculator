@@ -10,6 +10,7 @@ class Calculator
   attr_accessor :operator_list, :operator, :first_number, :second_number, :result
   def initialize
     @operator_list = [:add, :subtract, :divide, :muliply] << :exponent << :root # Add more operators by removing '#
+    @operator = 'add'
   end
 
   def crunch_numbers
