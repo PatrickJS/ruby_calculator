@@ -140,56 +140,56 @@ class Input
   end
 end
 
-calculator    = Calculator.new
-screen        = Screen.new
-input         = Input.new
+cal    = Calculator.new
+s      = Screen.new
+input  = Input.new
 
 loop do
-  screen.refresh
-  screen.show_header
-  screen.operation(calculator.operator_list)
-  screen.type_text("\nWhich operation would you like to preform: ")
-  calculator.operator = input.command.downcase
-  screen.operator = screen.convert_operator(calculator.operator)
+  s.refresh
+  s.show_header
+  s.operation(cal.operator_list)
+  s.type_text("\nWhich operation would you like to preform: ")
+  cal.operator = input.command.downcase
+  s.operator = s.convert_operator(cal.operator)
 
-  screen.refresh
-  screen.show_header(0)
+  s.refresh
+  s.show_header(0)
       # quick a dirty way of changing the view of root and exponent
-      if calculator.operator == 'root'
-      screen.type_text("\nWhich number do you want to square root? ")
-      calculator.second_number = input.command.to_i
-      elsif calculator.operator == 'exponent'
-      screen.type_text("\nWhat is the base number? ")
-      calculator.first_number = input.command.to_i
+      if cal.operator == 'root'
+      s.type_text("\nWhich number do you want to square root? ")
+      cal.second_number = input.command.to_i
+      elsif cal.operator == 'exponent'
+      s.type_text("\nWhat is the base number? ")
+      cal.first_number = input.command.to_i
 
-      screen.type_text("What is the exponent number? ")
-      calculator.second_number = input.command.to_i
-      exponent = calculator.second_number
+      s.type_text("What is the exponent number? ")
+      cal.second_number = input.command.to_i
+      exponent = cal.second_number
       else
       #end
-  screen.type_text("\nWhat is the first number? ")
-  calculator.first_number = input.command.to_i
+  s.type_text("\nWhat is the first number? ")
+  cal.first_number = input.command.to_i
 
-  screen.type_text("What is the second number? ")
-  calculator.second_number = input.command.to_i
+  s.type_text("What is the second number? ")
+  cal.second_number = input.command.to_i
   end
-  screen.refresh
-  screen.show_header(0)
-  screen.load(35,0.005,"#", true)
+  s.refresh
+  s.show_header(0)
+  s.load(35,0.005,"#", true)
 
 
-  screen.refresh
-  screen.show_header(0)
-  calculator.result = calculator.crunch_numbers
-  screen.result = calculator.result # for when I add decimals
-  screen.type_text("\nYour answer\n#{calculator.first_number}#{screen.operator}#{calculator.second_number} = #{screen.result}")
-  screen.type_text("\nWould you like to restart or end the program? ")
+  s.refresh
+  s.show_header(0)
+  cal.result = cal.crunch_numbers
+  s.result = cal.result # for when I add decimals
+  s.type_text("\nYour answer\n#{cal.first_number}#{s.operator}#{cal.second_number} = #{s.result}")
+  s.type_text("\nWould you like to restart or end the program? ")
   if input.command == "end" then break end
-  screen.type_text('Reloading')
-  screen.load(10,0.025,'.')
+  s.type_text('Reloading')
+  s.load(10,0.025,'.')
   sleep 0.5
 end
-  screen.refresh
-  screen.type_text("\tGood Bye", 0.05)
+  s.refresh
+  s.type_text("\tGood Bye", 0.05)
   sleep 0.5
-  screen.refresh
+  s.refresh
