@@ -10,14 +10,11 @@ class Calculator
   attr_accessor :operator_list, :operator, :first_number, :second_number, :result
   def initialize
     @operator_list = [:add, :subtract, :divide, :muliply] << :exponent << :root # Add more operators by removing '#
-    @operator = 'add'
   end
 
   def crunch_numbers
     # @operator_list.each do |operator|
       case
-      when @operator == 'add'
-        self.add(@first_number, @second_number)
       when @operator == 'subtract'
         self.subtract(@first_number, @second_number)
       when @operator == 'divide'
@@ -29,6 +26,9 @@ class Calculator
       when @operator == 'root'
         @first_number = nil
         self.root(@second_number)
+      else
+        @operator = 'add'
+        self.add(@first_number, @second_number)
       end
   end
   def add(a, b)
@@ -84,8 +84,6 @@ class Screen
   end
   def convert_operator(operator)
       case
-      when operator == 'add'
-        ' + '
       when operator == 'subtract'
         ' - '
       when operator == 'divide'
@@ -96,6 +94,8 @@ class Screen
           '^'
       when operator == 'root'
         '√'
+      else
+        ' + '
       end
   end
   # first world problems
