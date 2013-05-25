@@ -8,14 +8,14 @@
 class Calculator
   def initialize
     @cal={
-      add:      -> (*args) { args[0] + args[1] },
-      subtract: -> (*args) { args[0] - args[1] },
-      divide:   -> (*args) { args[0] / args[1] },
-      multiply: -> (*args) { args[0] * args[1] },
-      power:    -> (*args) { args[0] ** args[1] }
+      add:      -> (a,b) { a + b },
+      subtract: -> (a,b) { a - b },
+      divide:   -> (a,b) { a / b },
+      multiply: -> (a,b) { a * b },
+      power:    -> (a,b) { a ** b }
     }
   end
-  def method_missing(expression, *arguments, &block)
-    @cal[expression].call(arguments)
+  def method_missing(expression, a, b)
+    @cal[expression].call(a,b)
   end
 end
