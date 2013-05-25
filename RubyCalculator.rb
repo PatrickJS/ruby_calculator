@@ -5,13 +5,17 @@
 #
 #    MRI Ruby Version: 2.0.0p0
 #
-
-def calculator(expression, *arguments)
-  {
-    add:      -> (*args) { args[0] + args[1] },
-    subtract: -> (*args) { args[0] - args[1] },
-    divide:   -> (*args) { args[0] / args[1] },
-    multiply: -> (*args) { args[0] * args[1] },
-    power:    -> (*args) { args[0] ** args[1] }
-  }[expression].call(*arguments)
+class Calculator
+  def initialize
+    @cal={
+      add:      -> (*args) { args[0] + args[1] },
+      subtract: -> (*args) { args[0] - args[1] },
+      divide:   -> (*args) { args[0] / args[1] },
+      multiply: -> (*args) { args[0] * args[1] },
+      power:    -> (*args) { args[0] ** args[1] }
+    }
+  end
+  def method_missing(expression, *arguments, &block)
+    @cal[expression].call(arguments)
+  end
 end
