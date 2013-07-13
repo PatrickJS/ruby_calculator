@@ -7,15 +7,16 @@
 #
 class Calculator
   def initialize
-    @cal={
-      add:      ->(a,b) { a + b },
-      subtract: ->(a,b) { a - b },
-      divide:   ->(a,b) { a / b },
-      multiply: ->(a,b) { a * b },
-      power:    ->(a,b) { a ** b }
-    }
+    x :add, :+
+    x :subtract, :-
+    x :divide, :/
+    x :multiply, :*
+    x :power, :**
   end
-  def method_missing(expression, a, b)
-    @cal[expression].call(a,b)
+  
+  def x name, sym
+    self.class.class_eval do
+      define_method(name, ->(a, b){ a.send(sym, b) })
+    end
   end
 end
