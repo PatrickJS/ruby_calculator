@@ -15,7 +15,7 @@ describe 'Performance' do
     @second = NUMBER.times.map{ Random.rand(UPPER_LIMIT) + 1 }
   end
 
-  def calculate_with calc
+  def calculate_with(calc)
     NUMBER.times do |n|
       calc.add(@first[n], @second[n])
       calc.subtract(@first[n], @second[n])

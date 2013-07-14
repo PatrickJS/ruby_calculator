@@ -1,10 +1,12 @@
 module CalculatorFactory
-  def build sym
+  def build(sym)
     Calculator.const_get(sym_to_module_string(sym)).new
   end
 
-  def sym_to_module_string sym
-    sym.to_s.split('_').collect{|e| e.capitalize}.join('')
+  def sym_to_module_string(sym)
+    sym.to_s.split('_').collect{ |e|
+      e.capitalize
+    }.join('')
   end
 end
 
@@ -17,7 +19,7 @@ module Calculator
       cal :multiply, :*
       cal :power, :**
     end
-  
+
     def cal(name, sym)
       # you may also use
       # self.class.class_eval do
