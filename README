@@ -3,4 +3,21 @@
 #          by gdi2290
 #
 #     MRI Ruby Version: 2.0.0p0
-#
+
+bundle install
+rspec --profile
+
+My output:
+
+...
+
+Top 3 slowest examples (42.6 seconds, 100.0% of total time):
+  Performance Calculator::MethodMissing calculates in
+    14.58 seconds ./spec/calculator_spec.rb:29
+  Performance Calculator::DefineMethod calculates in
+    14.17 seconds ./spec/calculator_spec.rb:36
+  Performance Calculator::Basic calculates in
+    13.84 seconds ./spec/calculator_spec.rb:43
+
+Finished in 42.92 seconds
+3 examples, 0 failures
